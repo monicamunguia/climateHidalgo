@@ -25,24 +25,31 @@ set_config(use_proxy(url="10.3.100.207", port = 8080))
 options(knitr.kable.NA = '')
 ```
 
-
 ## Introducción
 
-Este documento refiere a un análisis climático para el Estado de Hidalgo en México con enfásis en el municipio de Tula de Allende de estado; con este análisis se pretende realizar un diagnóstico climático identificando cómo ha sido el comportamiento histórico de variables como la precipitación y la temperatura para el municipio
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+El Estado de Hidalgo, y especificamente la región de Tula de Allende en México, se encuentran inmersos en un contexto climático dinámioco y en constante evolución. La variablidad climáticoa y el cambio climático representan desafíos cada vez más urgentes y relevantes para la comunidad local, así como para el desarrollo sostenible de la región en su conjunto; en este análisis, proponemos explorar en profundidad la situación climática actual y futura de esta área, utilizando como base fundamental datos históricos de bases de datos secundarias (como CHIRPS, CHIRTS, Worldclim; entre otros) y datos de cambio climáitco propiamente del sexto informe del cambio climático (IPCC: Panel Intergubermantal de Cambio Climático). 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+El objetivo principal de este estudio es comprender la interacción entre la variablidad climáitca y el cambio climático en el estado de Hidalgo, centrándonos en particular en el municipio de Tula de Allende. Para ello, emplearemos una amplia gama de herramientas analíticas, incluyendo la estimación de índices climáticos relevantes en relación al estrés humano y agricultura; la estimación de tendencias históricas y proyecciones futuras; y la evaluación de posibles impactgos en diversos aspectos socioeconómicos y ambientales. 
+
+Estge análiss se presenta en un momento crucial, en el que la necesidad de tomar medidas concretas para adaptarse y mitigar los efectos del cambio climático se hace cada vez más evidente. A través de la exploración detallada de los datos y la información proporcionada por el IPCC, buscamos proporiconar una base sólida para la toma de decisiones informadas y la formulación de políticas climáticas efectivas a nivel local y regional. 
+
+
+
+
+
+
+
+Este documento refiere a un análisis climático para el Estado de Hidalgo en México con enfásis en el municipio de Tula de Allende de estado; con este análisis se pretende realizar un diagnóstico climático identificando cómo ha sido el comportamiento histórico de variables como la precipitación y la temperatura para el municipio; sumando además el componente de cambio climático con datos del Panel Intergubermanetal de Cambio Climático (IPCC, en adelante) para el sexto informe. 
+
+
+ <http://rmarkdown.rstudio.com>.
+
+ **Knit** 
 
 ```{r cars}
 summary(cars)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+`echo = FALSE` 
