@@ -1,16 +1,34 @@
 ---
 title: "Análisis geográfico desde una perspectiva climática en Hidalgo"
-author: "Monica Garcia / Fabio Castro"
+author: "Monica Garcia - Universidad Autónoma del Estado de Hidalgo"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document:
+    css: style.css
+    theme: united
+    toc_depth: 3
+    highlight: tango
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, echo = FALSE, out.width = '100px'}
+library(htmltools)
+htmltools::img(src = 'D:/asesorias/class/2024/15 monica garcia/v1/climateHidalgo/logo3.png', 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
 
-## R Markdown
+```{r setup, include = FALSE}
+require(pacman)
+pacman::p_load(terra, gtools, ggnewscale, hrbrthemes, kableExtra, stringr, sf, tidyverse, fs, colorspace, foreign, cowplot, ggspatial, kableExtra, readxl)
+library(httr)    
+set_config(use_proxy(url="10.3.100.207", port = 8080))
+options(knitr.kable.NA = '')
+```
 
+
+## Introducción
+
+Este documento refiere a un análisis climático para el Estado de Hidalgo en México con enfásis en el municipio de Tula de Allende de estado; con este análisis se pretende realizar un diagnóstico climático identificando cómo ha sido el comportamiento histórico de variables como la precipitación y la temperatura para el municipio
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
