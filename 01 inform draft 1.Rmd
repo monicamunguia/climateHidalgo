@@ -33,14 +33,7 @@ El objetivo principal de este estudio es comprender la interacción entre la var
 
 Estge análiss se presenta en un momento crucial, en el que la necesidad de tomar medidas concretas para adaptarse y mitigar los efectos del cambio climático se hace cada vez más evidente. A través de la exploración detallada de los datos y la información proporcionada por el IPCC, buscamos proporiconar una base sólida para la toma de decisiones informadas y la formulación de políticas climáticas efectivas a nivel local y regional. 
 
-
-
-
-
-
-
-Este documento refiere a un análisis climático para el Estado de Hidalgo en México con enfásis en el municipio de Tula de Allende de estado; con este análisis se pretende realizar un diagnóstico climático identificando cómo ha sido el comportamiento histórico de variables como la precipitación y la temperatura para el municipio; sumando además el componente de cambio climático con datos del Panel Intergubermanetal de Cambio Climático (IPCC, en adelante) para el sexto informe. 
-
+En última instancia, este análisis aspira a contribuir al desarrollo de estrategias de adaptación y resiliencia que permitan a la comunidad de Tula de Allende y al Estado de Hidalgo enfrentar los desafíos climáticos venideros de manera efectiva y sostenible, salvaguardando al mismo tiempo la integridad de su entorno natural y el bienestar de sus habitantes. 
 
  <http://rmarkdown.rstudio.com>.
 
@@ -49,7 +42,5 @@ Este documento refiere a un análisis climático para el Estado de Hidalgo en M�
 ```{r cars}
 summary(cars)
 ```
-
-
 
 `echo = FALSE` 
