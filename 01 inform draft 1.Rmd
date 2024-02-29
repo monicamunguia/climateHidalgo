@@ -19,7 +19,7 @@ htmltools::img(src = './logo3.png',
 
 ```{r setup, include = FALSE}
 require(pacman)
-pacman::p_load(terra, gtools, ggnewscale, hrbrthemes, kableExtra, stringr, sf, tidyverse, fs, colorspace, foreign, cowplot, ggspatial, kableExtra, readxl)
+pacman::p_load(terra, gtools, ggnewscale, hrbrthemes, kableExtra, stringr, sf, tidyverse, fs, colorspace, foreign, cowplot, ggspatial, kableExtra, readxl, rnaturalearthdata, rnaturalearth)
 library(httr)    
 set_config(use_proxy(url="10.3.100.207", port = 8080))
 options(knitr.kable.NA = '')
@@ -37,8 +37,20 @@ En última instancia, este análisis aspira a contribuir al desarrollo de estrat
 
 ### Zona de estudio 
 
-El Estado de Hidalgo se encuentra en la región central de México, limitando al norte con los estados de San Luís Potosí y Veracruz, al este con Veracruz, al sur con Puebla, al suroeste con el Estado de México y al oeste con Querétaro; su topografía es variada, con la presencia de sierras, valles, mesetas y llanuras; en el norte del estado se encuentran las estribaciones de la Sierra Madre Oriental, mientras que en el sur se extiende en el Valle deMezquitarl. Las elevaciones más destacadas son el cerro de las Navajas, el Cerro de la Magueyera y el Cerro de San Juan, entre otros. Por su parte el clima de Hidalgo varia desde semiseco hasta templado subhúmedo. En las zonas más elevadas del norte de estado, el clima tiende a ser ma's frío, con temperaturas mínimas en inviertno que pueden descender por debajo de los 0°C. En las zonas más bajas del Valle del Mequital
+El Estado de Hidalgo se encuentra en la región central de México, limitando al norte con los estados de San Luís Potosí y Veracruz, al este con Veracruz, al sur con Puebla, al suroeste con el Estado de México y al oeste con Querétaro; su topografía es variada, con la presencia de sierras, valles, mesetas y llanuras; en el norte del estado se encuentran las estribaciones de la Sierra Madre Oriental, mientras que en el sur se extiende en el Valle deMezquitarl. Las elevaciones más destacadas son el cerro de las Navajas, el Cerro de la Magueyera y el Cerro de San Juan, entre otros. Por su parte el clima de Hidalgo varia desde semiseco hasta templado subhúmedo. En las zonas más elevadas del norte de estado, el clima tiende a ser ma's frío, con temperaturas mínimas en inviertno que pueden descender por debajo de los 0°C. En las zonas más bajas del Valle del Mezquital, el clima tiende a ser más cálido y seco, con temperaturas que pueden superar los 30°C en verano.
 
+En la siguiente figura se ilustra la ubicación geográfica de Tula de Allende e Hidalgo geográficamente. 
+
+```{r mainMap}
+wrld <- rnaturalearth::ne_countries(scale = 50, returnclass = 'sf')
+mex0 <- filter(wrld, sov_a3 == 'MEX')
+mex1 <- geodata::gadm(country = 'MEX', level = 1, path = './tmpr')
+mex2 <- geodata::gadm(country = 'MEX', level = 2, path = './tmpr')
+hdlg <- mex1[mex1$NAME_1 == 'Hidalgo',]
+mex1 <- st_as_sf(mex1)
+hdlg <- st_as_sf(hdlg)
+tula <- mex2[mex2$NAME_2 == 'Tula de Allende',]
+```
 
 
 
