@@ -12,7 +12,7 @@ output:
 
 ```{r, echo = FALSE, out.width = '100px'}
 library(htmltools)
-htmltools::img(src = 'D:/asesorias/class/2024/15 monica garcia/v1/climateHidalgo/logo3.png', 
+htmltools::img(src = './logo3.png', 
                alt = 'logo', 
                style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
@@ -27,13 +27,21 @@ options(knitr.kable.NA = '')
 
 ## Introducción
 
-El Estado de Hidalgo, y especificamente la región de Tula de Allende en México, se encuentran inmersos en un contexto climático dinámioco y en constante evolución. La variablidad climáticoa y el cambio climático representan desafíos cada vez más urgentes y relevantes para la comunidad local, así como para el desarrollo sostenible de la región en su conjunto; en este análisis, proponemos explorar en profundidad la situación climática actual y futura de esta área, utilizando como base fundamental datos históricos de bases de datos secundarias (como CHIRPS, CHIRTS, Worldclim; entre otros) y datos de cambio climáitco propiamente del sexto informe del cambio climático (IPCC: Panel Intergubermantal de Cambio Climático). 
+El Estado de Hidalgo, y especificamente la región de Tula de Allende en México, se encuentran inmersos en un contexto climático dinámico y en constante evolución. La variablidad climática y el cambio climático representan desafíos cada vez más urgentes y relevantes para la comunidad local, así como para el desarrollo sostenible de la región en su conjunto; en este análisis, proponemos explorar en profundidad la situación climática actual y futura de esta área, utilizando como base fundamental datos históricos de bases de datos secundarias (como CHIRPS, CHIRTS, Worldclim, CMIP6, entre otros) y datos de cambio climático propiamente del sexto informe del cambio climático (IPCC: Panel Intergubermantal de Cambio Climático). 
 
-El objetivo principal de este estudio es comprender la interacción entre la variablidad climáitca y el cambio climático en el estado de Hidalgo, centrándonos en particular en el municipio de Tula de Allende. Para ello, emplearemos una amplia gama de herramientas analíticas, incluyendo la estimación de índices climáticos relevantes en relación al estrés humano y agricultura; la estimación de tendencias históricas y proyecciones futuras; y la evaluación de posibles impactgos en diversos aspectos socioeconómicos y ambientales. 
+El objetivo principal de este estudio es comprender la interacción entre la variablidad climática y el cambio climático en el estado de Hidalgo, centrándonos en particular en el municipio de Tula de Allende. Para ello, emplearemos una amplia gama de herramientas analíticas, incluyendo la estimación de índices climáticos relevantes en relación al estrés humano y agricultura; la estimación de tendencias históricas y proyecciones futuras; y la evaluación de posibles impactos en diversos aspectos socioeconómicos y ambientales. 
 
 Estge análiss se presenta en un momento crucial, en el que la necesidad de tomar medidas concretas para adaptarse y mitigar los efectos del cambio climático se hace cada vez más evidente. A través de la exploración detallada de los datos y la información proporcionada por el IPCC, buscamos proporiconar una base sólida para la toma de decisiones informadas y la formulación de políticas climáticas efectivas a nivel local y regional. 
 
 En última instancia, este análisis aspira a contribuir al desarrollo de estrategias de adaptación y resiliencia que permitan a la comunidad de Tula de Allende y al Estado de Hidalgo enfrentar los desafíos climáticos venideros de manera efectiva y sostenible, salvaguardando al mismo tiempo la integridad de su entorno natural y el bienestar de sus habitantes. 
+
+### Zona de estudio 
+
+El Estado de Hidalgo se encuentra en la región central de México, limitando al norte con los estados de San Luís Potosí y Veracruz, al este con Veracruz, al sur con Puebla, al suroeste con el Estado de México y al oeste con Querétaro; su topografía es variada, con la presencia de sierras, valles, mesetas y llanuras; en el norte del estado se encuentran las estribaciones de la Sierra Madre Oriental, mientras que en el sur se extiende en el Valle deMezquitarl. Las elevaciones más destacadas son el cerro de las Navajas, el Cerro de la Magueyera y el Cerro de San Juan, entre otros. Por su parte el clima de Hidalgo varia desde semiseco hasta templado subhúmedo. En las zonas más elevadas del norte de estado, el clima tiende a ser ma's frío, con temperaturas mínimas en inviertno que pueden descender por debajo de los 0°C. En las zonas más bajas del Valle del Mequital
+
+
+
+
 
  <http://rmarkdown.rstudio.com>.
 
