@@ -19,7 +19,8 @@ htmltools::img(src = './logo3.png',
 
 ```{r setup, include = FALSE}
 require(pacman)
-pacman::p_load(terra, gtools, ggnewscale, hrbrthemes, kableExtra, stringr, sf, tidyverse, fs, colorspace, foreign, cowplot, ggspatial, kableExtra, readxl, rnaturalearthdata, rnaturalearth)
+pacman::p_load(terra, gtools, ggnewscale, ggrepel, hrbrthemes, kableExtra, stringr, sf, tidyverse, fs, colorspace, foreign, cowplot, ggspatial, kableExtra, readxl, rnaturalearthdata, rnaturalearth)
+pacman::p_load(OpenStreetMap, ggrepel, ggspatial, sf, fs, colourpicker, glue, openxlsx, readxl, tidyverse, classInt, ggspatial, hrbrthemes, RColorBrewer, osmdata, dbscan, geosphere, ggmap, osrm, terra)
 library(httr)    
 set_config(use_proxy(url="10.3.100.207", port = 8080))
 options(knitr.kable.NA = '')
@@ -41,7 +42,9 @@ El Estado de Hidalgo se encuentra en la región central de México, limitando al
 
 En la siguiente figura se ilustra la ubicación geográfica de Tula de Allende e Hidalgo geográficamente. 
 
-```{r mainMap}
+```{r mainMap, warning = FALSE, echo = FALSE, fig.align = 'center',  fig.cap = "Ubicación geográfica de Tula de Allende dentro del Estado de Hidalgo", fig.pos = "top"}
+
+## Administrative data
 wrld <- rnaturalearth::ne_countries(scale = 50, returnclass = 'sf')
 mex0 <- filter(wrld, sov_a3 == 'MEX')
 mex1 <- geodata::gadm(country = 'MEX', level = 1, path = './tmpr')
@@ -50,6 +53,31 @@ hdlg <- mex1[mex1$NAME_1 == 'Hidalgo',]
 mex1 <- st_as_sf(mex1)
 hdlg <- st_as_sf(hdlg)
 tula <- mex2[mex2$NAME_2 == 'Tula de Allende',]
+
+## Coordinates
+crds <- mex1 %>% st_centroid() %>% st_coordinates() %>% as_tibble() %>% mutate(name = mex1$NAME_1) %>% setNames(c('x', 'y', 'name'))
+
+## To fit the basemap
+extn <- ext(hdlg)
+map  <- openmap(c(extn[4], extn[1]), c(extn[3], extn[2]), zoom = 12, type = 'bing', mergeTiles = TRUE)
+map.latlon <- openproj(map, projection = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
+
+## To make the map
+g.hdlg <- autoplot(map.latlon, alpha = 0.5) + 
+  geom_sf(data = st_as_sf(hdlg), fill = NA, col = 'grey20', inherit.aes = FALSE) +
+  geom_sf(data = st_as_sf(tula), aes(fill = NAME_2), col = 'darkred', alpha = 0.2, inherit.aes = FALSE) + 
+  geom_sf(data = mex1, fill = NA, col = 'grey70', inherit.aes = FALSE) +
+  geom_text(data = crds, aes(x = x, y = y, label = name)) +
+  coord_sf(xlim = ext(hdlg)[1:2], ylim = ext(hdlg)[3:4]) + 
+  labs(x = 'Lon', y = 'Lat', fill = '') +
+  theme_light() + 
+  theme(axis.text.y = element_text(size = 5, angle = 90, hjust = 0.5), 
+        axis.text.x = element_text(size = 5),
+        legend.position = 'bottom',
+        axis.title = element_text(family = 'bold')) 
+
+g.hdlg
+
 ```
 
 
