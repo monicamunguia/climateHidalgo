@@ -42,7 +42,8 @@ El Estado de Hidalgo se encuentra en la región central de México, limitando al
 
 En la siguiente figura se ilustra la ubicación geográfica de Tula de Allende e Hidalgo geográficamente. 
 
-```{r mainMap, warning = FALSE, echo = FALSE, fig.align = 'center',  fig.cap = "Ubicación geográfica de Tula de Allende dentro del Estado de Hidalgo", fig.pos = "top"}
+```{r mainMap, warning = FALSE, message = FALSE, echo = FALSE, fig.align = 'center',  fig.cap = "Ubicación geográfica de Tula de Allende dentro del Estado de Hidalgo", fig.pos = "top"}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ## Administrative data
 wrld <- rnaturalearth::ne_countries(scale = 50, returnclass = 'sf')
@@ -64,9 +65,9 @@ map.latlon <- openproj(map, projection = '+proj=longlat +ellps=WGS84 +datum=WGS8
 
 ## To make the map
 g.hdlg <- autoplot(map.latlon, alpha = 0.5) + 
-  geom_sf(data = st_as_sf(hdlg), fill = NA, col = 'grey20', inherit.aes = FALSE) +
-  geom_sf(data = st_as_sf(tula), aes(fill = NAME_2), col = 'darkred', alpha = 0.2, inherit.aes = FALSE) + 
-  geom_sf(data = mex1, fill = NA, col = 'grey70', inherit.aes = FALSE) +
+  geom_sf(data = st_as_sf(hdlg), fill = NA, col = 'grey90', inherit.aes = FALSE) +
+  geom_sf(data = st_as_sf(tula), aes(fill = NAME_2), col = 'darkred', alpha = 0.5, inherit.aes = FALSE) + 
+  geom_sf(data = mex1, fill = NA, col = 'grey99', inherit.aes = FALSE) +
   geom_text(data = crds, aes(x = x, y = y, label = name)) +
   coord_sf(xlim = ext(hdlg)[1:2], ylim = ext(hdlg)[3:4]) + 
   labs(x = 'Lon', y = 'Lat', fill = '') +
@@ -80,7 +81,7 @@ g.hdlg
 
 ```
 
-
+El área total del Estado de Hidalgo es de `expanse(hdlg, unit = 'ha')` hectáreas, mientras que por su parte Tula de Allende tiene un área geográfica total de `expanse(tula, unit = 'ha')`, siendo así Tula de Allende.
 
 
  <http://rmarkdown.rstudio.com>.
